@@ -125,10 +125,24 @@ syntax keyword lkmlSqlStatement sql_table_name    contained nextgroup=lkmlSqlBod
 syntax keyword lkmlModelKeyword sql_always_where  contained nextgroup=lkmlSqlBody
 syntax keyword lkmlModelKeyword sql_table_name    contained nextgroup=lkmlSqlBody
 
-syntax region lkmlSqlBody start=/:\zs/ end=/\ze;;/ contained
+syntax region lkmlSqlBody start=/:\zs/ end=/\ze;;/ contained contains=lkmlSqlReference,lkmlSqlComment
+
+syntax region lkmlSqlReference start=/${/ end=/}/  contained contains=lkmlReferenceConstant,lkmlReferenceExpression
+
+syntax match lkmlReferenceExpression /\w\+/ contained
+
+syntax match lkmlSqlComment /\v--.*$/
+
+syntax keyword lkmlReferenceConstant TABLE
+syntax keyword lkmlReferenceConstant SQL_TABLE_NAME
 
 highlight link lkmlSqlBody String
 highlight link lkmlSqlStatement Keyword
+highlight link lkmlReferenceExpression Identifier
+highlight link lkmlReferenceConstant Constant
+highlight link lkmlSqlComment Comment
+
+highlight link lkmlComment Comment
 
 " Bool
 syntax keyword lkmlBoolean yes no
