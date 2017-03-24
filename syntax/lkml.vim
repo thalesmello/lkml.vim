@@ -4,6 +4,8 @@ endif
 
 let b:current_syntax = "lkml"
 
+syntax sync fromstart
+
 " View Keywords
 syntax keyword lkmlViewKeyword alias
 syntax keyword lkmlViewKeyword alpha_sort
