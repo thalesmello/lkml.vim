@@ -114,15 +114,16 @@ highlight link lkmlString String
 
 " SQL
 syntax match lkmlSql /\<sql\w*:\_.\{-};;/ contains=lkmlSqlStatement,lkmlSqlBody
-syntax keyword lkmlSqlStatement sql contained nextgroup=lkmlSqlBody
+
+syntax keyword lkmlSqlStatement sql               contained nextgroup=lkmlSqlBody
 syntax keyword lkmlSqlStatement sql_trigger_value contained nextgroup=lkmlSqlBody
-syntax keyword lkmlSqlStatement sql_on contained nextgroup=lkmlSqlBody
-syntax keyword lkmlSqlStatement sql_distinct_key contained nextgroup=lkmlSqlBody
-syntax keyword lkmlSqlStatement sql_latitude contained nextgroup=lkmlSqlBody
-syntax keyword lkmlSqlStatement sql_longitude contained nextgroup=lkmlSqlBody
-syntax keyword lkmlSqlStatement sql_table_name contained nextgroup=lkmlSqlBody
-syntax keyword lkmlModelKeyword sql_always_where contained nextgroup=lkmlSqlBody
-syntax keyword lkmlModelKeyword sql_table_name contained nextgroup=lkmlSqlBody
+syntax keyword lkmlSqlStatement sql_on            contained nextgroup=lkmlSqlBody
+syntax keyword lkmlSqlStatement sql_distinct_key  contained nextgroup=lkmlSqlBody
+syntax keyword lkmlSqlStatement sql_latitude      contained nextgroup=lkmlSqlBody
+syntax keyword lkmlSqlStatement sql_longitude     contained nextgroup=lkmlSqlBody
+syntax keyword lkmlSqlStatement sql_table_name    contained nextgroup=lkmlSqlBody
+syntax keyword lkmlModelKeyword sql_always_where  contained nextgroup=lkmlSqlBody
+syntax keyword lkmlModelKeyword sql_table_name    contained nextgroup=lkmlSqlBody
 
 syntax region lkmlSqlBody start=/:\zs/ end=/\ze;;/ contained
 
