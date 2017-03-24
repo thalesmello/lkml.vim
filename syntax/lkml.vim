@@ -49,10 +49,6 @@ syntax keyword lkmlViewKeyword required_fields
 syntax keyword lkmlViewKeyword set
 syntax keyword lkmlViewKeyword skip_drill_filter
 syntax keyword lkmlViewKeyword sortkeys
-syntax keyword lkmlViewKeyword sql_distinct_key
-syntax keyword lkmlViewKeyword sql_latitude
-syntax keyword lkmlViewKeyword sql_longitude
-syntax keyword lkmlViewKeyword sql_table_name
 syntax keyword lkmlViewKeyword style
 syntax keyword lkmlViewKeyword suggest_dimension
 syntax keyword lkmlViewKeyword suggest_explore
@@ -95,9 +91,6 @@ syntax keyword lkmlModelKeyword named_value_format
 syntax keyword lkmlModelKeyword persist_for
 syntax keyword lkmlModelKeyword relationship
 syntax keyword lkmlModelKeyword required_joins
-syntax keyword lkmlModelKeyword sql_always_where
-syntax keyword lkmlModelKeyword sql_on
-syntax keyword lkmlModelKeyword sql_table_name
 syntax keyword lkmlModelKeyword symmetric_aggregates
 syntax keyword lkmlModelKeyword type
 syntax keyword lkmlModelKeyword unless
@@ -123,6 +116,14 @@ highlight link lkmlString String
 syntax match lkmlSql /\<sql\w*:\_.\{-};;/ contains=lkmlSqlStatement,lkmlSqlBody
 syntax keyword lkmlSqlStatement sql contained nextgroup=lkmlSqlBody
 syntax keyword lkmlSqlStatement sql_trigger_value contained nextgroup=lkmlSqlBody
+syntax keyword lkmlSqlStatement sql_on contained nextgroup=lkmlSqlBody
+syntax keyword lkmlSqlStatement sql_distinct_key contained nextgroup=lkmlSqlBody
+syntax keyword lkmlSqlStatement sql_latitude contained nextgroup=lkmlSqlBody
+syntax keyword lkmlSqlStatement sql_longitude contained nextgroup=lkmlSqlBody
+syntax keyword lkmlSqlStatement sql_table_name contained nextgroup=lkmlSqlBody
+syntax keyword lkmlModelKeyword sql_always_where contained nextgroup=lkmlSqlBody
+syntax keyword lkmlModelKeyword sql_table_name contained nextgroup=lkmlSqlBody
+
 syntax region lkmlSqlBody start=/:\zs/ end=/\ze;;/ contained
 
 highlight link lkmlSqlBody String
