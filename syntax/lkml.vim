@@ -72,6 +72,43 @@ syntax keyword lkmlViewKeyword when
 
 highlight link lkmlViewKeyword Keyword
 
+" Model keywords
+syntax keyword lkmlModelKeyword access_filter_fields
+syntax keyword lkmlModelKeyword always_filter
+syntax keyword lkmlModelKeyword always_join
+syntax keyword lkmlModelKeyword cancel_grouping_fields
+syntax keyword lkmlModelKeyword case_sensitive
+syntax keyword lkmlModelKeyword conditionally_filter
+syntax keyword lkmlModelKeyword connection
+syntax keyword lkmlModelKeyword description
+syntax keyword lkmlModelKeyword explore
+syntax keyword lkmlModelKeyword field
+syntax keyword lkmlModelKeyword fields
+syntax keyword lkmlModelKeyword filters
+syntax keyword lkmlModelKeyword foreign_key
+syntax keyword lkmlModelKeyword from
+syntax keyword lkmlModelKeyword hidden
+syntax keyword lkmlModelKeyword include
+syntax keyword lkmlModelKeyword join
+syntax keyword lkmlModelKeyword label
+syntax keyword lkmlModelKeyword named_value_format
+syntax keyword lkmlModelKeyword persist_for
+syntax keyword lkmlModelKeyword relationship
+syntax keyword lkmlModelKeyword required_joins
+syntax keyword lkmlModelKeyword sql_always_where
+syntax keyword lkmlModelKeyword sql_on
+syntax keyword lkmlModelKeyword sql_table_name
+syntax keyword lkmlModelKeyword symmetric_aggregates
+syntax keyword lkmlModelKeyword type
+syntax keyword lkmlModelKeyword unless
+syntax keyword lkmlModelKeyword value
+syntax keyword lkmlModelKeyword value_format
+syntax keyword lkmlModelKeyword view_label
+syntax keyword lkmlModelKeyword view_name
+syntax keyword lkmlModelKeyword week_start_day
+
+highlight link lkmlModelKeyword Keyword
+
 " Comment
 syntax match lkmlComment /\v#.*$/
 
