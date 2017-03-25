@@ -6,6 +6,8 @@ let b:current_syntax = "lkml"
 
 syntax sync fromstart
 
+setlocal commentstring=#\ %s
+
 " View Keywords
 syntax keyword lkmlViewKeyword alias
 syntax keyword lkmlViewKeyword alpha_sort
