@@ -1,2 +1,4 @@
 # lkml.vim
-A LookML syntax for vim.
+A (new) LookML syntax for vim.
+
+![](demo.png)
