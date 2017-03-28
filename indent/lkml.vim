@@ -20,7 +20,6 @@ function! LkmlIndent()
   endif
 
   " Default previous line indent of previous line
-  echom string(prevnonblank(v:lnum - 1))
   let indent_to = indent(prevnonblank(v:lnum - 1))
 
   let current_line = getline(v:lnum)
@@ -33,22 +32,19 @@ function! LkmlIndent()
 
   " If current line ends with a close bracket, decrease indent
   if current_line =~# '^.*}$'
-    let indent_to = indent_to - &shiftwidth
-  endif
+    let current_pos = getpos('.')
+    let bracket_col = matchstr(current_line, "}$") + 1
+    let bracket_pos = getpos('.')
+    bracket_pos[1] = v:lnum
+    bracket_pos[2] = bracket_col
+    setpos(bracket_pos)
+    let s_flags = 'nbW'
+    let s_skip ='synIDattr(synID(line("."), col("."), 0), "name") ' .
+      \ '=~? "lkmlSqlBody\\|string"'
+    let [m_lnum, m_col] = searchpairpos('{', '', '}', s_flags, s_skip)
+    setpos(current_pos)
 
-
-
-  let previous_line = getline(prevnonblank(v:lnum - 1))
-  let currentLine = getline(v:lnum)
-
-  " Don't indent after an annotation
-  if previous_line =~# '^\s*@.*$'
-    let indent_to = indent(v:lnum - 1)
-  endif
-
-  " Indent after opening List literal
-  if previous_line =~# '\[$' && !(currentLine =~# '^\s*\]')
-    let indent_to = indent(v:lnum - 1) + &shiftwidth
+    let indent_to = indent(m_lnum)
   endif
 
   return indent_to
